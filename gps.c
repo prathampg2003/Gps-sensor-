@@ -6,7 +6,7 @@ TinyGPSPlus gps;
 SoftwareSerial SerialGPS(4, 5); 
  
 const char* ssid = "Pratham";
-const char* password = "xyxzzz";
+const char* password = "pratham123";
  
 float Latitude , Longitude;
 int year , month , date, hour , minute , second;
