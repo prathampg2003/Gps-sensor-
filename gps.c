@@ -1,7 +1,7 @@
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 #include <ESP8266WiFi.h>
- //pratham
+ 
 TinyGPSPlus gps;
 SoftwareSerial SerialGPS(4, 5); 
  
@@ -36,15 +36,20 @@ void setup()
  
 void loop()
 {
-  while (SerialGPS.available() > 0)
+  while (SerialGPS.available()) {
     if (gps.encode(SerialGPS.read()))
     {
       if (gps.location.isValid())
       {
+        // Serial.println("Hello!");
         Latitude = gps.location.lat();
         LatitudeString = String(Latitude , 6);
         Longitude = gps.location.lng();
         LongitudeString = String(Longitude , 6);
+      }
+      else {
+        LatitudeString = "92.30303";
+        LongitudeString = "100.23.235";
       }
  
       if (gps.date.isValid())
@@ -74,7 +79,7 @@ void loop()
       {
         TimeString = "";
         hour = gps.time.hour()+ 5; //adjust UTC
-        minute = gps.time.minute();
+        minute = gps.time.minute() + 30;
         second = gps.time.second();
  
         if (hour < 10)
@@ -93,6 +98,7 @@ void loop()
       }
  
     }
+  }
   WiFiClient client = server.available();
   if (!client)
   {
@@ -129,8 +135,11 @@ void loop()
   }
  
   s += "</body> </html> \n";
- 
+  Serial.println("I am Here.");
+  Serial.println(LongitudeString);
+  Serial.println(LatitudeString);
   client.print(s);
   delay(100);
+  
  
 }
