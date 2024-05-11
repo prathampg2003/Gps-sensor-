@@ -3,6 +3,10 @@
 ## Overview
 This Arduino project creates a web server using an ESP8266 module, which displays real-time GPS data obtained from a NEO-6M GPS module. The webpage served by the ESP8266 shows latitude, longitude, date, and time obtained from the GPS module. Additionally, users can click on a link to view the location on Google Maps.
 
+https://github.com/prathampg2003/Gps-sensor-/assets/89197939/482d07db-1c1a-43c4-ad98-4b7c59ed54e6
+
+
+
 ## Hardware Requirements
 - ESP8266 module
 - NEO-6M GPS module
